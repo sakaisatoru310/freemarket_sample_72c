@@ -1,139 +1,72 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# name
 
-Things you may want to cover:
+FURIMA
 
-* Ruby version
+http://13.114.123.216/
 
-* System dependencies
+4人チームで作成したフリマサイトです。
 
-* Configuration
+それぞれが作業を分担しながらDB設計から作成しました
 
-* Database creation
+実際に売買することはできませんが、PAY.JPを導入しているので架空の決済まで可能です。
+ 
+# Features
+ 
+プログラミングスクールの最終課題として作成しました。
 
-* Database initialization
+フリマサイトを作成するに当たって、必須機能などの課題はありましたが、自由に作成することができました。
+ 
+# Requirement
+ 
+* ruby 2.5.1
+ 
+# Usage
 
-* How to run the test suite
+トップページよりログインをクリックしていただき、出品者または購入者の情報を入力、ログインしてください。
 
-* Services (job queues, cache servers, search engines, etc.)
+user：hoge
+pass：fuga
+ 
+出品者
 
-* Deployment instructions
+e-mail：testtest@gmail.com
 
-* ...
+パスワード：111111
 
-## usersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|nickname|string|null: false|
-|email|string|null: false|
-|password|string|null: false|
-|fullname|string|null: false|
-|fullname_katakana|string|null: false|
-|phone_number|integer |null: false|
-|birthday|integer |null: false|
-### Association
-- has_many :products 
-- has_many :comments
-- has_many :likes
-- has_one :addresses
-- has_one :cards
+クレジット情報：4242424242424242
 
-## productsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|reference|foreign_key: true|
-|name|string|null: false|
-|details|string|null: false|
-|categories|string|null: false|
-|price|int|null: false|
-|condition|string|null: false|
-|exhibition|string|null: false|
-|shippingarea|stirng|null: false|
-|shippingdate|string|null: false|
-### Association
-- belongs_to :user
-- has_many :images
-- has_many :main_categories
-- has_many :comments
-- has_many :likes
+有効期限：12／29
 
+セキュリティコード：123
 
-## addressesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user|references|null:false,foreign_key: true|
-|zipcode|string|null:false|
-|prefectures|string|null:false|
-|municipalities|string|null:false|
-|address|string||
-|building|string||
-### Association
-- belongs_to :user
+購入者
 
+e-mail：testbuy＠gmail.com
 
-## cardテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null:false,foreign_key: true|
-|customar_id|integer|null:false|
-|card_id|integer|null:false|
-|token|string|null:false|
-|
-### Association
-- belongs_to :user
+パスワード：111111 
 
-## imagesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|product_id||references|null:false,foreign_key: true|
-|image|string|null: false, foreign_key: true|
-### Association
-- belongs_to :product
+出品者は出品画面から商品を出品することができます。出品した商品は、編集削除ができますので誤登録した場合は編集策書をお願いします。
 
-## categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|category_name|string|null: false, foreign_key: true|
-### Association
-- belongs_to :product
-- has_many :sub_categories, dependent: :nullify
+購入者は商品検索、カテゴリー検索から商品を探し購入することができます。
 
-- has_ancestry
+購入の際は上記のクレジット番号をお使いください。
+# Note
+ 
+私が担当した箇所
 
-## commentsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null:false,foreign_key: true|
-|product_id|references|null:false,foreign_key: true|
-|comment|string|null: false, foreign_key: true|
-### Association
-- belongs_to :user
-- belongs_to :product
+トップページ
 
-## likesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|product_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :user
-- belongs_to :product
+トップページ全体のビューを作成しました
 
+商品編集機能
+商品削除機能
+パンくず機能
 
+ 
+# Author
+ 
 
-<!-- ## sub_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|category_name|string|null: false, foreign_key: true|
-### Association
-- belongs_to :main_category
-- has_many :sub2_categories
-
-## sub2_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|category_name|string|null: false, foreign_key: true|
-### Association
-- belongs_to :sub_category -->
+* 坂井　智
+* tuba310@gmail.com
